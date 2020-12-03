@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Note, Topic
+from django.contrib.auth.models import User
+from .forms import NewTopicForm
 # Create your views here.
 def home(request):
 	alltopics = Topic.objects.all()
@@ -9,13 +11,12 @@ def home(request):
 
 def topic_new(request):
 	if request.method == 'POST':
-		subject = request.POST['subject']
-		desc = request.Post['description']
-		user = User.objects.first()
-		topic = Topic.objects.create(
-			subject = subject,
-			description = desc,
-			owner = user
-		)
-		return redirect('url_topics')
-	return render(request, 'topic_new.html')
+		form = NewTopicForm(request.POST)
+		if form.is_valid():
+			topic = form.save(commit=False)
+			topic.owner = username
+			topic.save()
+			return redirect('url_topics')
+	else:
+		form = NewTopicForm()
+	return render(request, 'topic_new.html', {'topic_form': form})
