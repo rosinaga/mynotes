@@ -9,8 +9,16 @@
     <h1>New Topic</h1>
     <form method="post" novalidate>
       {% csrf_token %}
-      {{ topic_form.as_p }}
-      <button type="submit">Submit</button>
+      {% for field in topic_form %}
+        <div class="field_wrapper">
+          {{ field.label_tag }} {{ field }}
+          {{ field.errors }}
+          {% if field.help_text %}
+          <p class="help">{{ field.help_text|safe }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <button typ="submit">Submit</button>
     </form>
     <a href="{% url 'url_home' %}">Home</a>
 
