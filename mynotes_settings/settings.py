@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-'notes',
+    'notes',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +59,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
         BASE_DIR / 'templates',
+        BASE_DIR / 'templates/registration',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

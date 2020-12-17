@@ -10,14 +10,15 @@ def home(request):
 
 
 def topic_new(request):
-	user = User.objects.first()
-	if request.method == 'POST':
-		form = NewTopicForm(request.POST)
-		if form.is_valid():
-			topic = form.save(commit=False)
-			topic.owner = user
-			topic.save()
-			return redirect('url_topic_new')
+	user = request.user
+	if user.is_authenticated:
+		if request.method == 'POST':
+			form = NewTopicForm(request.POST)
+			if form.is_valid():
+				topic = form.save()
+				return redirect('url_topics')
+		else:
+			form = NewTopicForm()
+		return render(request, 'topic_new.html', {'topic_form': form})
 	else:
-		form = NewTopicForm()
-	return render(request, 'topic_new.html', {'topic_form': form})
+		return redirect('login')

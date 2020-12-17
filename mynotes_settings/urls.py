@@ -1,4 +1,4 @@
-"""mynotes_settings URL Configuration
+    """mynotes_settings URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -21,5 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='url_home'),
     path('topics/', views.home, name='url_home'),
-    path('topics/new', views.topic_new, name='url_topic_new')
+    path('topics/new', views.topic_new, name='url_topic_new'),
+
+    path('signup/',accounts_views.signup,name='url_signup'),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

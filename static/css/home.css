@@ -1,3 +1,7 @@
+{
+  box-sizing: border-box;
+}
+
 body{
   background-color: #f3f3f3;
   color: #333;
@@ -12,16 +16,53 @@ h1 {
   font-size: 140%;
 }
 
-.grid-container {
+input, textarea {
+  display: block;
+  width: 100%;
+  padding: 5px;
+}
+
+form{
+  max-width: 800px;
+}
+
+.linkqueue {
+  font-weight: bold;
+  font-size: 80%;
+  margin: 0 0 5px 0;
+}
+#navbar {
+  font-weight: bold;
+  font-size: 100%;
+  margin: 3px 0 3px 0;
+}
+
+ a{
+  display: inline-block;
+  color: #777;
+  padding: 3px 5px;
+  margin: 0;
+  background-color: #ddd;
+  border-radius: 5px;
+  text-decoration: none;
+}
+a:hover {
+  background-color: #d4d4d4;
+}
+.linkqueue > a:last-child{
+  background-color: inherit;
+}
+
+.grid {
   display: grid;
-  grid-template-columns: 120px auto auto 70px;
+  grid-template-columns: auto auto auto auto;
   background-color: #ddd;
   padding: 5px;
   border-radius: 5px;
 }
 
 /* All div elements inside grid-container: */
-.grid-container > div{
+.grid > div{
   border-radius: 5px;
   padding: 5px;
   margin: 2px;
@@ -41,17 +82,8 @@ h1 {
   font-weight: bold;
   border-bottom: 3px solid #bbb;
 }
-.errorlist {
-  text-decoration: none;
-  color: red;
-  margin: 0 0 5px 0;
-  font-size: 90%;
-}
-.help {
-  margin-top: 5px;
-  font-size: 90%;
-  color: #777;
-}
-.field_wrapper{
-  margin: 10px 0 10px 0;
+#user{
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }

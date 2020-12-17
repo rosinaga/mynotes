@@ -1,27 +1,46 @@
-<!DOCTYPE html>
+{% load static %}<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Mynotes</title>
-        {% load static %}
-        <link rel = "stylesheet" href="{% static 'css/home.css' %}">
-    </head>
-    <body>
-        <h1>My Notes By Topics</h1>
-        <div class="grid-container">
-          <div class="topic_header">Topic</div>
-          <div class="topic_header">Description</div>
-          <div class="topic_header">Created by</div>
-          <div class="topic_header">Notes</div>
+  <head>
+    <meta charset="utf-8" name="viewport"
+      content="width=device-width, initial-scale=1.0">
+    <title>Mynotes</title>
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  </head>
+  <body>
+    <h1>My Notes</h1>
+    <div class="linkqueue">
+      Home
+    </div>
+    <div id="user">
+      {% if user.is_authenticated %}
+        Logged in user: {{user.username}}
+        <a href="{% url 'logout' %}" >Logout</a>
+      {% else %}
+        <a href="{% url 'login' %}" >Login</a>
+        <a href="{% url 'url_signup' %}" >Signup</a>
+      {% endif %}
+    </div>
+    <div id="navbar">
+      <a href="{% url 'url_topic_new' %}" >Add topic</a>
+    </div>
 
-          {% for topic in topics_for_home %}
-            <div class="item1">{{ topic.subject}}</div>
-            <div class="item2">{{ topic.description}}</div>
-            <div class="item3">{{ topic.owner.first_name}}</div>
-            <div class="item4">0</div>
-        {% endfor %}
 
-      </div>
-      <a href="{% url 'url_topic_new' %}">New Topics</a>
-    </body>
+
+    <div class="grid">
+      <div class="topic_header">Topic</div>
+      <div class="topic_header">Description</div>
+      <div class="topic_header">Created by</div>
+      <div class="topic_header">Notes</div>
+
+
+
+      {% for topic in topics_for_home %}
+        <div class="item1">{{ topic.subject }}</div>
+        <div class="item2">{{ topic.description }}</div>
+        <div class="item3">{{ topic.owner.username }}</div>
+        <div class="item4">0</div>
+      {% endfor %}
+    </div>
+  </body>
 </html>
+ 
