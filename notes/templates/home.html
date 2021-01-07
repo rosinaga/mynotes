@@ -33,7 +33,7 @@
       <div class="topic_header">Notes</div>
 
 
-
+      <div class = "item3">{{ topic.owner.username }}</div>
       {% for topic in topics_for_home %}
         <div class="item1">{{ topic.subject }}</div>
         <div class="item2">{{ topic.description }}</div>
@@ -43,4 +43,3 @@
     </div>
   </body>
 </html>
- 

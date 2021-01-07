@@ -87,3 +87,19 @@ a:hover {
   top: 20px;
   left: 20px;
 }
+ .errorlist {
+   text-decoration: none;
+   color: red;
+   margin: 0 0 5px 0;
+   font-size: 90%;
+ }
+
+ .help {
+   margin-top: 5px;
+   font-size: 90%;
+   color: #777;
+ }
+
+ .field_wrapper{
+   margin: 10px 0 10px 0;
+ }
