@@ -58,8 +58,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-        BASE_DIR / 'templates',
-        BASE_DIR / 'templates/registration',
+        BASE_DIR / 'notes/templates',
+        BASE_DIR / 'notes/templates/registration',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

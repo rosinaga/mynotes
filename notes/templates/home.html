@@ -4,7 +4,7 @@
     <meta charset="utf-8" name="viewport"
       content="width=device-width, initial-scale=1.0">
     <title>Mynotes</title>
-    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
   </head>
   <body>
     <h1>My Notes</h1>
@@ -33,7 +33,7 @@
       <div class="topic_header">Notes</div>
 
 
-      <div class = "item3">{{ topic.owner.username }}</div>
+      
       {% for topic in topics_for_home %}
         <div class="item1">{{ topic.subject }}</div>
         <div class="item2">{{ topic.description }}</div>
