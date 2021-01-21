@@ -27,4 +27,5 @@ urlpatterns = [
 # accounts:====================================================
     path('signup/',accounts_views.signup,name='url_signup'),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('topics/<int:topic_id>/edit/', views.topic_edit, name = 'url_topic_edit'),
 ]

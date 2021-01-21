@@ -7,3 +7,14 @@ class NewTopicForm(forms.ModelForm):
     class Meta:
         model = Topic
         fields = ['subject', 'description']
+
+class EditTopicForm(forms.ModelForm):
+    description = forms.CharField(
+        widget = forms.Textarea(),
+        max_length = 500,
+        help_text = 'The max length of the text is 500 characters'
+    )
+
+    class Meta:
+        model = Topic
+        fields = ['subject', 'description']
